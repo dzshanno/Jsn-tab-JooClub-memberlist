@@ -2,6 +2,7 @@
 Integration plugin between Easy Profile and HikaShop to display the user orders in an Easy Profile tab
 
 You can read more about Easy Profile here: https://extensions.joomla.org/extension/easy-profile
+
 And more about HikaShop here: https://www.hikashop.com
 
 ## Initial development 
