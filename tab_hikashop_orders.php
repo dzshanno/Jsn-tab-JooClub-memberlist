@@ -28,7 +28,7 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		}
 		include_once(rtrim(JPATH_ADMINISTRATOR,DS).DS.'components'.DS.'com_hikashop'.DS.'helpers'.DS.'helper.php');
 		include_once(JPATH_SITE.'/components/com_jsn/helpers/helper.php');
-		$user=JsnHelper::getUser();
+		$profileuser=JsnHelper::getUser();
 
 		//load order info
 		$database	= JFactory::getDBO();
@@ -54,7 +54,7 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 					<tr>
 						<th class="hikashop_order_number_title title" style="text-align:center;" align="center">
 							<?php echo JText::_('ORDER_NUMBER'); ?>
-							<?php echo $user; ?> 
+							<?php echo $profileuser->id; ?> 
 						</th>
 						<th class="hikashop_order_date_title title" style="text-align:center;" align="center">
 							<?php echo JText::_('DATE'); ?>
