@@ -29,14 +29,20 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		include_once(rtrim(JPATH_ADMINISTRATOR,DS).DS.'components'.DS.'com_hikashop'.DS.'helpers'.DS.'helper.php');
 		include_once(JPATH_SITE.'/components/com_jsn/helpers/helper.php');
 		
-		// try and find the ID of the user whos profile you want to look at not the logged in user
+		// find the hikashop ID of the user whos profile you want to look at not the logged in user
+		$userClass = hikashop_get('class.user');
+		$userCMS = JFactory::getUser();
+		$hikashop_id = $userClass->getID($id));
+		
+		
+		
 		
 		$profileuser = JsnHelper::getUser();
 
 		//load order info
 		$database	= JFactory::getDBO();
 		$searchMap = array('a.order_id','a.order_status');
-		$filters = array('a.order_user_id='.hikashop_loadUser());
+		$filters = array('a.order_user_id='.$hikashop_id);
 
 		$order = ' ORDER BY a.order_created DESC';
 		$query = 'FROM '.hikashop_table('order').' AS a WHERE '.implode(' AND ',$filters).$order;
@@ -59,7 +65,7 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 							<?php echo JText::_('ORDER_NUMBER'); ?> :
 							<?php echo $id; ?> :
 							<?php echo $user->id; ?> :
-							<?php echo $profileuser2->id; ?> ;
+							<?php echo $hikashop_id; ?> ;
 							
 						</th>
 						<th class="hikashop_order_date_title title" style="text-align:center;" align="center">
