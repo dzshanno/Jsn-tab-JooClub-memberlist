@@ -5,6 +5,8 @@
 * @package		Easy Profile
 * website		www.easy-profile.com
 * Technical Support : Forum -	http://www.easy-profile.com/support.html
+
+* plus a copuple of changes by dzshanno@yahoo.com to see if we can get thios to work for admin use on the front end
 */
 
 defined('_JEXEC') or die;
@@ -31,13 +33,8 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		
 		// find the hikashop ID of the user whos profile you want to look at not the logged in user
 		$userClass = hikashop_get('class.user');
-		$userCMS = JFactory::getUser();
 		$hikashop_id = $userClass->getID($id);
-		
-		
-		
-		
-		$profileuser = JsnHelper::getUser();
+	
 
 		//load order info
 		$database	= JFactory::getDBO();
@@ -63,10 +60,6 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 					<tr>
 						<th class="hikashop_order_number_title title" style="text-align:center;" align="center">
 							<?php echo JText::_('ORDER_NUMBER'); ?> :
-							<?php echo $id; ?> :
-							<?php echo $user->id; ?> :
-							<?php echo $hikashop_id; ?> ;
-							
 						</th>
 						<th class="hikashop_order_date_title title" style="text-align:center;" align="center">
 							<?php echo JText::_('DATE'); ?>
