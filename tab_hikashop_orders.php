@@ -1,4 +1,4 @@
-<?php
+		<?php
 /**
 * @copyright	Copyright (C) 2016 Kyra.lt All rights reserved.
 * @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
@@ -16,6 +16,8 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 	
 	public function renderTabs($data, $config)
 	{
+		$app->enqueueMessage(JText::_('MESSAGE STUFF'));
+		
 		$plugin=array(JText::_($this->params->get('tabtitle','Orders')));
 		
 		$item_id = $this->params->get('item_id','');
