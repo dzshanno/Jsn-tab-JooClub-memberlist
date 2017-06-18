@@ -16,6 +16,7 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 	
 	public function renderTabs($data, $config)
 	{
+		$app = JFactory::getApplication();
 		$app->enqueueMessage(JText::_('MESSAGE STUFF'));
 		
 		$plugin=array(JText::_($this->params->get('tabtitle','Orders')));
