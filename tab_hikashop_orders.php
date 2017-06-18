@@ -32,6 +32,9 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		include_once(rtrim(JPATH_ADMINISTRATOR,DS).DS.'components'.DS.'com_hikashop'.DS.'helpers'.DS.'helper.php');
 		include_once(JPATH_SITE.'/components/com_jsn/helpers/helper.php');
 		
+		//testing error messaging
+		JFactory::getApplication()->enqueueMessage(JText::_('SOME_ERROR_OCCURRED'), 'error');
+		
 		// find the hikashop ID of the user whos profile you want to look at not the logged in user
 		$userClass = hikashop_get('class.user');
 		$hikashop_id = $userClass->getID($id);
