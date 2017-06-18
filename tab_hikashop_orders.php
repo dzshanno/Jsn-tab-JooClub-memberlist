@@ -56,9 +56,9 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 				<thead>
 					<tr>
 						<th class="hikashop_order_number_title title" style="text-align:center;" align="center">
-							<?php echo JText::_('ORDER_NUMBER'); ?>
-							<?php echo $profileuser->id; ?>
-							<?php echo $profileuser2->id; ?>
+							<?php echo JText::_('ORDER_NUMBER'); ?> :
+							<?php echo $profileuser->id; ?> :
+							<?php echo $profileuser2->id; ?> ;
 							
 						</th>
 						<th class="hikashop_order_date_title title" style="text-align:center;" align="center">
