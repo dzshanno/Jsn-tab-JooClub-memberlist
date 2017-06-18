@@ -1,4 +1,4 @@
-		<?php
+<?php
 /**
 * @copyright	Copyright (C) 2016 Kyra.lt All rights reserved.
 * @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
