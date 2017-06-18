@@ -30,7 +30,7 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		include_once(JPATH_SITE.'/components/com_jsn/helpers/helper.php');
 		
 		// try and find the ID of the user whos profile you want to look at not the logged in user
-		$profileuser2 = JRequest::getInt('uid');
+		$profileuser2 = $this -> JRequest::getInt('uid');
 		$profileuser = JsnHelper::getUser();
 
 		//load order info
