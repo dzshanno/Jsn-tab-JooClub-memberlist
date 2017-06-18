@@ -32,7 +32,7 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		// find the hikashop ID of the user whos profile you want to look at not the logged in user
 		$userClass = hikashop_get('class.user');
 		$userCMS = JFactory::getUser();
-		$hikashop_id = $userClass->getID($id));
+		$hikashop_id = $userClass->getID($id);
 		
 		
 		
