@@ -11,15 +11,13 @@
 
 defined('_JEXEC') or die;
 
-class PlgJsnTab_Hikashop_orders extends JPlugin
+class PlgJsnTab_jooclub_members extends JPlugin
 {
 	
 	public function renderTabs($data, $config)
 	{
 		
-		$plugin=array(JText::_($this->params->get('tabtitle','Orders')));
-		
-		$item_id = $this->params->get('item_id','');
+		$plugin=array(JText::_($this->params->get('tabtitle','Players')));
 		
 		$id	= JRequest::getInt( 'id', 0 );
 
@@ -31,13 +29,7 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		}
 		include_once(rtrim(JPATH_ADMINISTRATOR,DS).DS.'components'.DS.'com_hikashop'.DS.'helpers'.DS.'helper.php');
 		include_once(JPATH_SITE.'/components/com_jsn/helpers/helper.php');
-		
-		
-		// find the hikashop ID of the user whos profile you want to look at not the logged in user
-		$userClass = hikashop_get('class.user');
-		$hikashop_id = $userClass->getID($id);
 	
-
 		//load order info
 		$database	= JFactory::getDBO();
 		$searchMap = array('a.order_id','a.order_status');
@@ -51,9 +43,6 @@ class PlgJsnTab_Hikashop_orders extends JPlugin
 		if(empty($rows)){
 			return;
 		}
-		$currencyHelper = hikashop_get('class.currency');
-		$trans = hikashop_get('helper.translation');
-		$statuses = $trans->getStatusTrans();
 
 		ob_start();
 		?>
