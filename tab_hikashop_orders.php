@@ -30,14 +30,14 @@ class PlgJsnTab_jooclub_members extends JPlugin
 		include_once(rtrim(JPATH_ADMINISTRATOR,DS).DS.'components'.DS.'com_hikashop'.DS.'helpers'.DS.'helper.php');
 		include_once(JPATH_SITE.'/components/com_jsn/helpers/helper.php');
 	
-		//load order info
+		//load member info
 		$database	= JFactory::getDBO();
-		$searchMap = array('a.order_id','a.order_status');
-		$filters = array('a.order_user_id='.$hikashop_id);
+		$searchMap = array('p.surname','p.firstname');
+		$filters = array('p.cmsuserId='.$id);
 
-		$order = ' ORDER BY a.order_created DESC';
-		$query = 'FROM '.hikashop_table('order').' AS a WHERE '.implode(' AND ',$filters).$order;
-		$database->setQuery('SELECT a.* '.$query);
+		$order = ' ORDER BY p.firstname DESC';
+		$query = 'FROM #__cmperson.' AS p WHERE '.implode(' AND ',$filters).$order;
+		$database->setQuery('SELECT p.* '.$query);
 		$rows = $database->loadObjectList();
 
 		if(empty($rows)){
@@ -46,23 +46,7 @@ class PlgJsnTab_jooclub_members extends JPlugin
 
 		ob_start();
 		?>
-			<table class="hikashop_orders adminlist" style="width:100%" cellpadding="1">
-				<thead>
-					<tr>
-						<th class="hikashop_order_number_title title" style="text-align:center;" align="center">
-							<?php echo JText::_('ORDER_NUMBER'); ?> :
-						</th>
-						<th class="hikashop_order_date_title title" style="text-align:center;" align="center">
-							<?php echo JText::_('DATE'); ?>
-						</th>
-						<th class="hikashop_order_status_title title" style="text-align:center;" align="center">
-	 			 		    <?php echo JText::_('ORDER_STATUS'); ?>
-						</th>
-						<th class="hikashop_order_total_title title" style="text-align:center;" align="center">
-							<?php echo JText::_('HIKASHOP_TOTAL'); ?>
-						</th>
-					</tr>
-				</thead>
+			<table class="Jooclub members adminlist" style="width:100%" cellpadding="1">
 				<tbody>
 					<?php
 						$k = 0;
@@ -77,15 +61,6 @@ class PlgJsnTab_jooclub_members extends JPlugin
 							</td>
 							<td class="hikashop_order_date_value" align="center">
 								<?php echo hikashop_getDate($row->order_created,'%Y-%m-%d %H:%M');?>
-							</td>
-							<td class="hikashop_order_status_value" align="center">
-								<?php
-									//get translation
-									echo $statuses[$row->order_status];
-								?>
-							</td>
-							<td class="hikashop_order_total_value" align="center">
-								<?php echo $currencyHelper->format($row->order_full_price,$row->order_currency_id);?>
 							</td>
 						</tr>
 					<?php
